@@ -11,13 +11,14 @@ export class FirebaseService {
   itemCollection: AngularFirestoreCollection;
   
   constructor(private af: AngularFirestore ) {
-    this.itemCollection = af.collection('');
+    this.itemCollection = af.collection('itens');
+   
 
 
   }
 
-  //busa todos os produtos
-  consultar(){
+  //busca todos os produtos
+  consultar():any{
     return this.itemCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
@@ -29,7 +30,7 @@ export class FirebaseService {
     );
   }
 
-  //busca somente um poduto
+  //buscar somente um poduto
   consultaone(id: string){
     return this.itemCollection.doc(id).valueChanges();
   }
@@ -45,6 +46,7 @@ export class FirebaseService {
   editar(id: string, item: any){
     return this.itemCollection.doc(id).update(item);
   }
+
 
   
 }
