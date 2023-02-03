@@ -9,5 +9,6 @@ export interface Clientes{
     senha: string,
     cep: number,
     rua: string,
-    bairro: string
+    bairro: string,
+    servico: string
 }

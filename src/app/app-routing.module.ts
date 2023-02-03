@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'clinica',
     loadChildren: () => import('./pages/clinica/clinica.module').then( m => m.ClinicaPageModule)
+  },
+  {
+    path: 'historico',
+    loadChildren: () => import('./pages/historico/historico.module').then( m => m.HistoricoPageModule)
   }
 ];
 

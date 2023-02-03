@@ -6,8 +6,36 @@ import { FolderPage } from './folder.page';
 const routes: Routes = [
   {
     path: '',
-    component: FolderPage
-  }
+    component: FolderPage,
+    children: [
+      {
+        path: 'home',
+        loadChildren: () => import('../pages/home/home.module').then( m => m.HomePageModule)
+      },
+      {
+        path: 'login',
+        loadChildren: () => import('../pages/login/login.module').then( m => m.LoginPageModule)
+      },
+      {
+        path: 'suporte',
+        loadChildren: () => import('../pages/suporte/suporte.module').then( m => m.SuportePageModule)
+      },
+      {
+        path: 'perfil',
+        loadChildren: () => import('../pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+      },
+      {
+        path: 'clinica',
+        loadChildren: () => import('../pages/clinica/clinica.module').then( m => m.ClinicaPageModule)
+      }
+    ]
+  },
+    {
+      path: '',
+      redirectTo: 'home',
+      pathMatch: 'full'
+    }
+  
 ];
 
 @NgModule({

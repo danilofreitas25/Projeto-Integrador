@@ -48,7 +48,7 @@
       
     <ion-row>
       <ion-col>
-        <button id="open-historico">
+        <button [routerLink]="['/historico']">
           <ion-card>
             <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
             <ion-card-header>
@@ -56,21 +56,6 @@
             </ion-card-header>
           </ion-card>
         </button>
-        <ion-modal #modal trigger="open-historico" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
-          <ng-template>
-            <ion-header>
-              <ion-toolbar>
-                <ion-title>Histórico</ion-title>
-                <ion-buttons slot="end">
-                  <ion-button (click)="modal.dismiss()">Close</ion-button>
-                </ion-buttons>
-              </ion-toolbar>
-            </ion-header>
-            <ion-content class="ion-padding">
-              <p>You will be prompted when closing this modal.</p>
-            </ion-content>
-          </ng-template>
-        </ion-modal>
       </ion-col>
     </ion-row>
 
@@ -79,7 +64,7 @@
 
     <ion-row> 
       <ion-col>
-        <button id="open-clinica">
+        <button [routerLink]="['/clinicas']">
           <ion-card>
             <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
             <ion-card-header>
@@ -87,21 +72,7 @@
             </ion-card-header>
           </ion-card>
         </button>
-        <ion-modal #modal trigger="open-clinica" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
-          <ng-template>
-            <ion-header>
-              <ion-toolbar>
-                <ion-title>Clínicas</ion-title>
-                <ion-buttons slot="end">
-                  <ion-button (click)="modal.dismiss()">Close</ion-button>
-                </ion-buttons>
-              </ion-toolbar>
-            </ion-header>
-            <ion-content class="ion-padding">
-              <p>You will be prompted when closing this modal.</p>
-            </ion-content>
-          </ng-template>
-        </ion-modal>  
+        
       </ion-col>
 
       <ion-col>
@@ -113,21 +84,6 @@
             </ion-card-header>
           </ion-card>
         </button>
-        <ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
-          <ng-template>
-            <ion-header>
-              <ion-toolbar>
-                <ion-title>Não sei</ion-title>
-                <ion-buttons slot="end">
-                  <ion-button (click)="modal.dismiss()">Close</ion-button>
-                </ion-buttons>
-              </ion-toolbar>
-            </ion-header>
-            <ion-content class="ion-padding">
-              <p>You will be prompted when closing this modal.</p>
-            </ion-content>
-          </ng-template>
-        </ion-modal> 
       </ion-col>
     </ion-row>
 
