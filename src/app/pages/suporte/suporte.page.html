@@ -1,13 +1,16 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>  
     <ion-title><strong>SUPORTE</strong></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>  
-    <ion-button id="open-modal" expand="block">FAÇA SUA REQUISIÇÃO</ion-button>
+    <ion-button id="openmodal" expand="block">FAÇA SUA REQUISIÇÃO</ion-button>
     <p>{{ message }}</p>
-    <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ion-modal trigger="openmodal" (willDismiss)="onWillDismiss($event)">
       <ng-template>
         <ion-header>
           <ion-toolbar>

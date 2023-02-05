@@ -35,8 +35,8 @@ export class FirebaseService {
     return this.itemCollection.doc(id).valueChanges();
   }
 
-  cadastrar(item: any){
-    return this.itemCollection.add(item);
+  cadastrar(clinica: any){
+    return this.itemCollection.add(clinica);
   }
 
   deletar(id: string){
