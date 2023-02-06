@@ -3,9 +3,6 @@ import { Router } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 
 
-
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

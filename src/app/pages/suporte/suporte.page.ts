@@ -11,7 +11,9 @@ export class SuportePage implements OnInit {
   //requisicao
   @ViewChild(IonModal) modal: IonModal;
 
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+  message= 'Clique no botão acima para fazer a sua requisição.';
+  message2= 'Clique no botão acima para acompanhar requição.';
+  message3= 'Clique no botão acima e veja os meios de contato da medconfia.';
   name: string;
   email:string;
   telefone:string;

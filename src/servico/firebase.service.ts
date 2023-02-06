@@ -10,10 +10,9 @@ export class FirebaseService {
   //ferramenta para manipular as coleções
   itemCollection: AngularFirestoreCollection;
   
+  
   constructor(private af: AngularFirestore ) {
-    this.itemCollection = af.collection('itens');
-   
-
+    this.itemCollection = af.collection("itens");
 
   }
 

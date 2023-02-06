@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'tour',
     pathMatch: 'full'
   },
   {
@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'historico',
     loadChildren: () => import('./pages/historico/historico.module').then( m => m.HistoricoPageModule)
+  },
+  {
+    path: 'tour',
+    loadChildren: () => import('./pages/tour/tour.module').then( m => m.TourPageModule)
   }
 ];
 
