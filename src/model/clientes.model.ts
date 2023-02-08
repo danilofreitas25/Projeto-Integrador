@@ -1,6 +1,6 @@
 export interface Clientes{
     id: string,
-    nome: string,
+    nomecliente: string,
     cpf: number,
     nascimento: number,
     genero: string,

@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
+import { Clinicas } from 'src/model/clinicas.model';
+import { Servicos } from 'src/model/servico.model';
+import { ClinicaService } from 'src/servico/clinica.service';
+import { HistoricoService } from 'src/servico/historico.service';
+
+
 
 
 @Component({
@@ -12,9 +18,13 @@ export class HomePage implements OnInit {
 
   presentingElement = undefined;
 
+  listaClinicas: Clinicas[] = [];
+
   constructor(
-    private actionSheetCtrl: ActionSheetController,
+    private actionSheet: ActionSheetController,
     private Router: Router,
+    private ClinicaBase: ClinicaService,
+    private AgendarBase: HistoricoService
 
 
 
@@ -22,10 +32,28 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');
+    this.ClinicaBase.consultar().subscribe(results => this.listaClinicas = results);
+  }
+
+  async agendar(clinicas: Servicos){
+    const action = await this.actionSheet.create({
+      header: 'Desejar agendar uma consulta?',
+      buttons: [
+        {
+          text: 'Sim',
+          role: 'confirm',
+          
+        },
+        {
+          text: 'Não',
+          role: 'cancel',
+      },
+      ],
+    });
   }
 
   canDismiss = async () => {
-    const actionSheet = await this.actionSheetCtrl.create({
+    const actionSheet = await this.actionSheet.create({
       header: 'Are you sure?',
       buttons: [
         {
@@ -46,7 +74,7 @@ export class HomePage implements OnInit {
    return role === 'confirm';
   };
 
- 
+
   
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { AuthService } from 'src/servico/auth.service';
 import { FirebaseService } from 'src/servico/firebase.service';
 
 @Component({
@@ -30,12 +32,22 @@ export class TourPage implements OnInit {
     }
   }
 
+  //tipar os dados do form
+  form: FormGroup
+
   constructor(
     private alertCtrl: AlertController,
-    private FireBase: FirebaseService
+    private FireBase: FirebaseService,
+    private authencation: AuthService,
+
+    //ferramenta validação do formulário
+
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
+    //executa o metodo na inicialização da page log
+    this.validaForm();
   }
 
 slideOpts = {
@@ -50,7 +62,7 @@ slideOpts = {
       header: 'Cadastro',
       inputs:[
         {
-          name: 'nome',
+          name: 'nomecliente',
           type: 'text',
           placeholder: 'Nome'
         },
@@ -114,7 +126,7 @@ slideOpts = {
           handler: (form) => {
             //Objeto que irá forma nosso item da lista
             let cliente = {
-              nome: form.nome,   
+              nomecliente: form.nomecliente,   
               senha: form.senha
             };
             try{
@@ -132,5 +144,26 @@ slideOpts = {
   
     (await alert).present();
   }
+
+
+  //Método de criação e validacao form
+  validaForm(){
+    this.form = this.formBuilder.group({
+      nome: [''],
+      email: ['',[Validators.required, Validators.email]],
+      password: ['',[Validators.required, Validators.minLength(3)]]
+    })
+}
+
+// // metodo chamado pelo botao submit do form
+//   formulario(){
+//     if(this.nameButton == 'Logar'){
+//       this.authencation.loginUser(this.form.value);
+//     }else if(this.nameButton == 'Registrar'){
+//       this.authencation.createUser(this.form.value);
+//     }else{
+//       console.log("cancel");
+//     }
+//   }
 
 }

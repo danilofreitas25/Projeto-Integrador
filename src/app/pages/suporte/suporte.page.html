@@ -31,14 +31,32 @@
         </ion-header>
         <ion-content class="ion-padding">
           <ion-item>
-            <ion-label position="stacked">Entre com seu nome</ion-label>
-            <ion-input type="text" placeholder="Seu name" [(ngModel)]="name"></ion-input>
-            <ion-label position="stacked">Entre com seu email</ion-label>
-            <ion-input type="text" placeholder="Seu email" [(ngModel)]="email"></ion-input>
-            <ion-label position="stacked">Entre com seu telefone</ion-label>
-            <ion-input type="phone" placeholder="Seu telefone" [(ngModel)]="telefone"></ion-input>
-           
+            <ion-label position="stacked">Digite seu nome completo</ion-label>
+            <ion-input type="text" placeholder="Seu nome" [(ngModel)]="name"></ion-input>
+            
+            <ion-list> 
+              <ion-item-sliding *ngFor="let clinicas of listaClinicas">
+              <button>
+                <!-- <ion-item (click)="agendar(clinicas)">  -->
+                <ion-item> 
+                  <ion-checkbox slot="start"></ion-checkbox>
+                <ion-label>{{clinicas.nomeclinica}}</ion-label>
+              </ion-item>
+            </button> 
+              </ion-item-sliding>
+            </ion-list>
+            
+        
 
+            <ion-label position="stacked">Assunto da requisição</ion-label>
+            <ion-input type="text" placeholder="assunto" [(ngModel)]="assunto"></ion-input>
+
+
+            <ion-label position="stacked">Email</ion-label>
+            <ion-input type="email" placeholder="email@email.com" [(ngModel)]="email"></ion-input>
+           
+            
+             
 
 
 

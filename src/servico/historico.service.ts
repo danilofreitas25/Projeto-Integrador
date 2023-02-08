@@ -11,7 +11,7 @@ export class HistoricoService {
   
   
   constructor(private af: AngularFirestore ) {
-    this.itemCollection = af.collection("historico");
+    this.itemCollection = af.collection("agendamentos");
 
   }
 
@@ -33,7 +33,7 @@ export class HistoricoService {
     return this.itemCollection.doc(id).valueChanges();
   }
 
-  cadastrar(clinica: any){
+  cadastrar(servico: any){
     return this.itemCollection.add(servico);
   }
 

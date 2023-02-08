@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { ClinicaService } from 'src/servico/clinica.service';
+import { Clinicas } from 'src/model/clinicas.model';
 
 @Component({
   selector: 'app-suporte',
@@ -8,6 +10,9 @@ import { OverlayEventDetail } from '@ionic/core/components';
   styleUrls: ['./suporte.page.scss'],
 })
 export class SuportePage implements OnInit {
+  
+  listaClinicas: Clinicas[] = [];
+  
   //requisicao
   @ViewChild(IonModal) modal: IonModal;
 
@@ -15,8 +20,15 @@ export class SuportePage implements OnInit {
   message2= 'Clique no botão acima para acompanhar requição.';
   message3= 'Clique no botão acima e veja os meios de contato da medconfia.';
   name: string;
+  assunto:string;
+  clinica:string;
   email:string;
-  telefone:string;
+
+
+
+constructor(
+  private ClinicaBase: ClinicaService
+){}
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
@@ -44,6 +56,8 @@ export class SuportePage implements OnInit {
   }
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');
+    this.ClinicaBase.consultar().subscribe(results => this.listaClinicas = results);
+
   }
 
 }

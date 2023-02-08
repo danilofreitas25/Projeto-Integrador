@@ -1,7 +1,8 @@
 export interface Requisacao{
     id: string,
-    nome: string,
+    nomecliente: string,
+    email: string,
     assunto: string,
-    clinica: string,
+    nomeclinica: string,
     status: boolean
 }
