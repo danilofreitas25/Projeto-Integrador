@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaseService {
-  //ferramenta para manipular as coleções
+export class EspecialidadesService {
+
   itemCollection: AngularFirestoreCollection;
   
   
   constructor(private af: AngularFirestore ) {
-    this.itemCollection = af.collection("clientes");
+    this.itemCollection = af.collection("especialidades");
 
   }
 
@@ -34,8 +33,8 @@ export class FirebaseService {
     return this.itemCollection.doc(id).valueChanges();
   }
 
-  cadastrar(clientes: any){
-    return this.itemCollection.add(clientes);
+  cadastrar(especialidades: any){
+    return this.itemCollection.add(especialidades);
   }
 
   deletar(id: string){
@@ -45,11 +44,5 @@ export class FirebaseService {
   editar(id: string, item: any){
     return this.itemCollection.doc(id).update(item);
   }
-
-
-  
-}
-function clientes(clientes: any) {
-  throw new Error('Function not implemented.');
 }
 
