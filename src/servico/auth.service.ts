@@ -5,14 +5,23 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root'
 })
 export class AuthService {
+  itemCollection: any;
+  auth: any;
 
   constructor(
     private angularAuth: AngularFireAuth
   ) { }
 
   //Autenticar um usuario existente
+    // validaremail(email: string){
+    // return this.itemCollection.doc(email).valueChanges();
+    // }
+    // validarsenha(senha: string){
+    // return this.itemCollection.doc(senha).valueChanges();
+    // }
+
     loginUser(user){
-      return this.angularAuth.signInWithEmailAndPassword(user.email, user.password);
+    return this.angularAuth.signInWithEmailAndPassword(user.email, user.password);
     }
 
     //create user

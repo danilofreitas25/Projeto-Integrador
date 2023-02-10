@@ -47,16 +47,16 @@
 
               <ion-list> 
                 <ion-item-sliding *ngFor="let clinicas of listaClinicas">
-                <button>
+                
                   <!-- <ion-item (click)="agendar(clinicas)">  -->
-                  <ion-item> 
+                  <ion-item (click)="agendamento(consulta)"> 
                   <ion-thumbnail slot="start">
                     <img alt="Clinicas" src="https://images.emojiterra.com/openmoji/v13.1/512px/1f3e5.png" />
                   </ion-thumbnail>
                   <ion-label>{{clinicas.nomeclinica}}</ion-label>
-                </ion-item>
-              </button>
+                </ion-item >
                 </ion-item-sliding>
+
               </ion-list>
 
             </ion-content>

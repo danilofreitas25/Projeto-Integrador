@@ -48,6 +48,9 @@ export class TourPage implements OnInit {
   ngOnInit() {
     //executa o metodo na inicialização da page log
     this.validaForm();
+    this.authencation.getAuth().user.subscribe(results => {
+      localStorage.setItem('userId', results.uid );
+    });
   }
 
 slideOpts = {
@@ -127,6 +130,14 @@ slideOpts = {
             //Objeto que irá forma nosso item da lista
             let cliente = {
               nomecliente: form.nomecliente,   
+              cpf: form.cpf,   
+              rg: form.rg,   
+              data: form.data,   
+              tipo: form.tipo,   
+              genero: form.genero,   
+              endereco: form.endereco,   
+              alergias: form.alergias,   
+              email: form.email,   
               senha: form.senha
             };
             try{
@@ -149,11 +160,26 @@ slideOpts = {
   //Método de criação e validacao form
   validaForm(){
     this.form = this.formBuilder.group({
-      nome: [''],
       email: ['',[Validators.required, Validators.email]],
       password: ['',[Validators.required, Validators.minLength(3)]]
     })
 }
+
+formulario(){ 
+try{
+
+      console.log(this.form.value)
+
+      this.authencation.loginUser(this.form.value);
+      /* console.log(localStorage.getItem('email'))
+      console.log(localStorage.getItem('userId')) */
+}catch{
+    console.log('Operação Desconhecida!');
+  }
+}
+
+
+
 
 // // metodo chamado pelo botao submit do form
 //   formulario(){

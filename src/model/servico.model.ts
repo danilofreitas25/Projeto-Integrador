@@ -1,7 +1,7 @@
 export interface Servicos{
     id: string,
+    especialidade: string,
+    horario: string,
     nomecliente: string,
-    nomeclinica: string,
-    status: boolean,
-    data: string
+    nomeclinica: string
 }

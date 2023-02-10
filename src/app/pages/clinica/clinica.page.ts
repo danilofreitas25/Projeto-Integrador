@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ClinicaService } from 'src/servico/clinica.service';
+import { HomePageModule } from '../home/home.module';
+import { Clinicas } from 'src/model/clinicas.model';
 
 @Component({
   selector: 'app-clinica',
@@ -9,10 +11,23 @@ import { ClinicaService } from 'src/servico/clinica.service';
 })
 export class ClinicaPage implements OnInit {
 
+  listaClinicas: Clinicas [] = [];
+
+  component = ClinicaPage;
+
+  canDismiss = false;
+
   presentingElement = null;
+
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');
+    this.ClinicaBase.consultar().subscribe(results => this.listaClinicas = results);
   }
 
   constructor(

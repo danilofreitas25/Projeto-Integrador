@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 import { Clinicas } from 'src/model/clinicas.model';
 import { Servicos } from 'src/model/servico.model';
 import { ClinicaService } from 'src/servico/clinica.service';
@@ -19,12 +19,16 @@ export class HomePage implements OnInit {
   presentingElement = undefined;
 
   listaClinicas: Clinicas[] = [];
+  consulta: any
 
   constructor(
     private actionSheet: ActionSheetController,
     private Router: Router,
     private ClinicaBase: ClinicaService,
-    private AgendarBase: HistoricoService
+    private Agendar: HistoricoService,
+    private alertCtrl: AlertController,
+    
+    
 
 
 
@@ -35,14 +39,104 @@ export class HomePage implements OnInit {
     this.ClinicaBase.consultar().subscribe(results => this.listaClinicas = results);
   }
 
-  async agendar(clinicas: Servicos){
-    const action = await this.actionSheet.create({
+   agendamento = async (consulta: Servicos) => {
+    const actionSheet = await this.actionSheet.create({
       header: 'Desejar agendar uma consulta?',
       buttons: [
         {
           text: 'Sim',
           role: 'confirm',
-          
+          handler: async () => {
+            const alert = this.alertCtrl.create({
+              header: 'Escolha a especialidade',
+              inputs: [
+                {
+                  label: 'Alergista',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'alergista',
+                  },
+                {
+                  label: 'Cardiologista',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'cardiologista',
+                  },
+                {
+                  label: 'Clínico Geral',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'clinico',
+                  },
+                {
+                  label: 'Dermotologista',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'dermatologista',
+                  },
+                {
+                  label: 'Ginecologista',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'ginecologista',
+                  },
+                {
+                  label: 'Nutricionista',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'nutricionista',
+                  },
+                {
+                  label: 'Oftalmologista',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'oftalmologista',
+                  },
+                {
+                  label: 'Ortopedista',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'ortopedista',
+                  },
+                {
+                  label: 'Psicologo',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'psicologo',
+                  },
+                {
+                  label: 'Urologista',
+                  type: 'radio',
+                  name: 'especialidade',
+                  value: 'urologista',
+                  },
+                ],
+                buttons: [
+                  {
+                    text: 'Cancelar',
+                    role: 'cancel'
+                  },
+                  {
+                    text: 'Agendar',
+                    handler: (form) => {
+                      let agendamento = {
+                        especialidade: form.especialidade,
+                        
+                      };
+                      try{
+                        this.Agendar.agendar(agendamento);
+                        console.log('oi')
+                      }catch(err){
+                        console.log(err)
+                      }
+                    }
+                  }
+
+                ]
+
+            });
+            (await alert).present();
+          }
         },
         {
           text: 'Não',
@@ -50,6 +144,8 @@ export class HomePage implements OnInit {
       },
       ],
     });
+    
+    actionSheet.present();
   }
 
   canDismiss = async () => {

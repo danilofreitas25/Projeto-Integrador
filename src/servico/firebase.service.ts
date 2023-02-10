@@ -34,6 +34,7 @@ export class FirebaseService {
     return this.itemCollection.doc(id).valueChanges();
   }
 
+
   cadastrar(clientes: any){
     return this.itemCollection.add(clientes);
   }

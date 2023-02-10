@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 export class HistoricoService {
 
   itemCollection: AngularFirestoreCollection;
+
   
   
   constructor(private af: AngularFirestore ) {
@@ -33,7 +34,7 @@ export class HistoricoService {
     return this.itemCollection.doc(id).valueChanges();
   }
 
-  cadastrar(servico: any){
+  agendar(servico: any){
     return this.itemCollection.add(servico);
   }
 

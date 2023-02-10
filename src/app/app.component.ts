@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TourPage } from './pages/tour/tour.page';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -13,6 +14,6 @@ export class AppComponent {
     { title: 'Suporte', url: '/suporte', icon: 'heart' },
     { title: 'Logout', url: ' ', icon: 'archive' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  public labels = [];
   constructor() {}
 }

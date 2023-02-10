@@ -3,6 +3,8 @@ import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { ClinicaService } from 'src/servico/clinica.service';
 import { Clinicas } from 'src/model/clinicas.model';
+import { Clientes } from 'src/model/clientes.model';
+import { FirebaseService } from 'src/servico/firebase.service';
 
 @Component({
   selector: 'app-suporte',
@@ -12,6 +14,7 @@ import { Clinicas } from 'src/model/clinicas.model';
 export class SuportePage implements OnInit {
   
   listaClinicas: Clinicas[] = [];
+  listaClientes: Clientes[] = [];
   
   //requisicao
   @ViewChild(IonModal) modal: IonModal;
@@ -27,7 +30,9 @@ export class SuportePage implements OnInit {
 
 
 constructor(
-  private ClinicaBase: ClinicaService
+  private ClinicaBase: ClinicaService,
+  private ClientesBase: FirebaseService
+
 ){}
 
   cancel() {
@@ -57,6 +62,7 @@ constructor(
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');
     this.ClinicaBase.consultar().subscribe(results => this.listaClinicas = results);
+    this.ClientesBase.consultar().subscribe(results => this.listaClientes = results);
 
   }
 
