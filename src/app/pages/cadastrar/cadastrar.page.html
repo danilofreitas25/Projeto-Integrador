@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-pading">
+  <div class="form">
+
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input [(ngModel)]="nomecliente"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input  type="email" [(ngModel)]='email'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input [(ngModel)]='senha'></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="stacked">CPF</ion-label>
+      <ion-input [(ngModel)]='cpf'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Data</ion-label>
+      <ion-input [(ngModel)]='data'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Endereço</ion-label>
+      <ion-input [(ngModel)]='endereco'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Genero</ion-label>
+      <ion-input [(ngModel)]='genero'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">RG</ion-label>
+      <ion-input [(ngModel)]='rg'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tipo Sanguíneo</ion-label>
+      <ion-input [(ngModel)]='tipo'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Alergias</ion-label>
+      <ion-input [(ngModel)]='alergias'></ion-input>
+    </ion-item>
+
+
+    <ion-button (click)='cadastrar()' expand='block'>Cadastrar</ion-button>
+  </div>
+</ion-content>
