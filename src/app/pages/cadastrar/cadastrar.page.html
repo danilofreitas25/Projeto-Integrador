@@ -12,7 +12,7 @@
 
     <ion-item>
       <ion-label position="stacked">Nome</ion-label>
-      <ion-input [(ngModel)]="nomecliente"></ion-input>
+      <ion-input type="text" [(ngModel)]="nomecliente"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -21,43 +21,54 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Senha</ion-label>
-      <ion-input [(ngModel)]='senha'></ion-input>
+      <ion-label  position="stacked">Senha</ion-label>
+      <ion-input placeholder="minimo 6 caracteres" type="password" [(ngModel)]='senha'></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label position="stacked">CPF</ion-label>
-      <ion-input [(ngModel)]='cpf'></ion-input>
+      <ion-input type="number" [(ngModel)]='cpf'></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Data</ion-label>
-      <ion-input [(ngModel)]='data'></ion-input>
+      <ion-input type="date" [(ngModel)]='data'></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Endereço</ion-label>
-      <ion-input [(ngModel)]='endereco'></ion-input>
+      <ion-input type="text" [(ngModel)]='endereco'></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Genero</ion-label>
-      <ion-input [(ngModel)]='genero'></ion-input>
-    </ion-item>
+
+      <ion-item position="stacked">
+        <ion-select [(ngModel)]='genero' placeholder="Genero">
+          <ion-select-option type="text">Masculino</ion-select-option>
+          <ion-select-option type="text">Feminino</ion-select-option>
+        </ion-select>
+      </ion-item>
+
 
     <ion-item>
       <ion-label position="stacked">RG</ion-label>
-      <ion-input [(ngModel)]='rg'></ion-input>
+      <ion-input type="number" [(ngModel)]='rg'></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Tipo Sanguíneo</ion-label>
-      <ion-input [(ngModel)]='tipo'></ion-input>
+    <ion-item position="stacked">
+      <ion-select [(ngModel)]='tipo' placeholder="Tipo Sanguíneo">
+        <ion-select-option type="text">A+</ion-select-option>
+        <ion-select-option type="text">B+</ion-select-option>
+        <ion-select-option type="text">AB+</ion-select-option>
+        <ion-select-option type="text">O+</ion-select-option>
+        <ion-select-option type="text">A-</ion-select-option>
+        <ion-select-option type="text">AB-</ion-select-option>
+        <ion-select-option type="text">O-</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Alergias</ion-label>
-      <ion-input [(ngModel)]='alergias'></ion-input>
+      <ion-input type="text" [(ngModel)]='alergias'></ion-input>
     </ion-item>
 
 
