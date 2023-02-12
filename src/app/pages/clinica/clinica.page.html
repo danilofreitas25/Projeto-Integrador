@@ -31,15 +31,17 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-item>
-            <ion-avatar slot="start">
-              <ion-img src="https://i.pravatar.cc/300?u=b"></ion-img>
-            </ion-avatar>
-            <ion-label>
-              <h2>Connor Smith</h2>
-              <p>Sales Rep</p>
-            </ion-label>
-          </ion-item>
+          <ion-list> 
+            <ion-item-sliding *ngFor="let clinicas of listaClinicas">
+
+              <!-- <ion-item (click)="agendar(clinicas)">  -->
+              <ion-item>
+              <ion-thumbnail><img alt="Silhouette of mountains" src="https://cdn-icons-png.flaticon.com/512/2222/2222671.png" /></ion-thumbnail>   
+              <ion-label>{{clinicas.nomeclinica}}</ion-label>
+            </ion-item>
+
+            </ion-item-sliding>
+          </ion-list>
         </ion-list>
       </ion-content>
     </ng-template>

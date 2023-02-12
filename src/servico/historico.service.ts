@@ -23,10 +23,15 @@ export class HistoricoService {
         return actions.map(a => {
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
+
           return {id,...data}
         })
       })
     );
+  }
+
+  mostrar(): any{
+    return this.itemCollection.doc().valueChanges();
   }
 
   //buscar somente um poduto

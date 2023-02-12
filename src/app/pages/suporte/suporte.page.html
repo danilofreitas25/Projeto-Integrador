@@ -23,34 +23,37 @@
               <ion-button (click)="cancel()">Cancelar</ion-button>
             </ion-buttons>
             <ion-title><strong>REQUISIÇÃO</strong></ion-title>
-            <ion-buttons slot="end">
-              <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
-            </ion-buttons>
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
-          <ion-item>
-            <ion-label position="stacked">Digite seu nome completo</ion-label>
-            <ion-input type="text" placeholder="Seu nome" [(ngModel)]="name"></ion-input>
+          <div class="form">
+  
+            <ion-item>
+              <ion-label position="stacked">Nome:</ion-label>
+              <ion-input type="text" [(ngModel)]='nomecliente'></ion-input>
+            </ion-item>
             
-            <ion-list> 
-              <ion-item-sliding *ngFor="let clinicas of listaClinicas">
-              <button>
-                <!-- <ion-item (click)="agendar(clinicas)">  -->
-                <ion-item> 
-                <ion-label>{{clinicas.nomeclinica}}</ion-label>
+            <ion-item>
+              <ion-label position="stacked">Email:</ion-label>
+              <ion-input type="text" [(ngModel)]='email'></ion-input>
+            </ion-item>
+        
+            <ion-list>
+              <ion-item >
+                <ion-select [(ngModel)]='nomeclinica' placeholder="Clinicas">
+                  <ion-select-option *ngFor="let clinicas of listaClinicas" type="text">{{clinicas.nomeclinica}}</ion-select-option>
+                </ion-select>
               </ion-item>
-            </button> 
-              </ion-item-sliding>
             </ion-list>
+      
+              <ion-item >
+                <ion-label position="stacked">Assunto da requisição</ion-label>
+              <ion-input type="text" placeholder="assunto" [(ngModel)]="assunto"></ion-input>
+              </ion-item>
 
-            <ion-label position="stacked">Assunto da requisição</ion-label>
-            <ion-input type="text" placeholder="assunto" [(ngModel)]="assunto"></ion-input>
-
-            <ion-label position="stacked">Email</ion-label>
-            <ion-input type="email" placeholder="email@email.com" [(ngModel)]="email"></ion-input>
-
-          </ion-item>
+            
+            <ion-button (click)='requisicao()' expand='block'>Enviar</ion-button>
+          </div>
         </ion-content>
       </ng-template>
     </ion-modal>
@@ -68,21 +71,26 @@
           </ion-toolbar>
         </ion-header>
         <ion-content>
-          <ion-list>
-            <ion-item *ngFor="let clinicas of listaClinicas">
-              <ion-avatar slot="start">
-                <ion-img src="https://cdn-icons-png.flaticon.com/512/4526/4526821.png"></ion-img>
-              </ion-avatar>
-              <ion-label>
-                {{clinicas.nomeclinica}}   
-               </ion-label>          
-               <ion-item *ngFor="let clientes of listaClientes">
-              <ion-label>
-                {{clientes.nomecliente}}
-               </ion-label>
-              </ion-item>                        
-            </ion-item>
-          </ion-list>
+          <ion-list> 
+    <ion-item-sliding *ngFor="let requisicoes of listaRequisicoes">
+  
+      <!-- <ion-item (click)="agendar(clinicas)">  -->
+      <ion-card>
+        <ion-item>
+        <ion-thumbnail>
+          <img alt="Silhouette of mountains" src="https://cdn-icons-png.flaticon.com/512/5199/5199662.png" />
+        </ion-thumbnail> 
+        <ion-card-header>
+        <ion-card-subtitle><strong>Requisicao:</strong> {{requisicoes.id}}</ion-card-subtitle>
+        <ion-card-title><strong>Cliente:</strong> {{requisicoes.nomecliente}}</ion-card-title>
+        <ion-card-subtitle><strong>Clinica:</strong> {{requisicoes.nomeclinica}}</ion-card-subtitle>
+        <ion-card-subtitle><strong>Assunto:</strong> {{requisicoes.assunto}}</ion-card-subtitle>
+
+      </ion-card-header>
+    </ion-item>
+  </ion-card>
+  </ion-item-sliding>
+  </ion-list>
         </ion-content>
       </ng-template>
     </ion-modal>

@@ -12,7 +12,7 @@
   
   <ion-grid>
     <ion-row>
-    <ion-col size="6">
+    <ion-col size="8" offset="2">
         <button [routerLink]="['/agendamento']">
           <ion-card>
             <img alt="Silhouette of mountains" src="assets/img/marcarconsulta.png" />
@@ -22,10 +22,12 @@
           </ion-card>
         </button>
       </ion-col>
+    </ion-row>
+  </ion-grid>
 
-
-        
-      <ion-col size="6">
+  <ion-grid>   
+    <ion-row>    
+      <ion-col size="8" offset="2">
         <button [routerLink]="['/historico']">
           <ion-card>
             <img alt="Silhouette of mountains" src="assets/img/histórico.png"   />
@@ -35,9 +37,13 @@
           </ion-card>
         </button>
       </ion-col>
+    </ion-row> 
+  <ion-grid>  
+    
 
-
-      <ion-col size="6">
+  <ion-grid>
+    <ion-row > 
+      <ion-col size="8" offset="2">
         <button [routerLink]="['/clinica']">
           <ion-card>
             <img alt="Silhouette of mountains" src="assets/img/clinicas.png" />
@@ -47,23 +53,11 @@
           </ion-card>
         </button>
       </ion-col>
-
-      <ion-col size="6">
-        <button id="open-modal">
-          <ion-card>
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-            <ion-card-header>
-              <ion-card-title>Não Sei</ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </button>
-      </ion-col>  
-
       </ion-row>
   </ion-grid>
   
   
 
-</ion-content>
+
 
 

@@ -11,7 +11,7 @@ export class ResquisicaoService {
   
   
   constructor(private af: AngularFirestore ) {
-    this.itemCollection = af.collection("requisicao");
+    this.itemCollection = af.collection("requisicoes");
 
   }
 
@@ -33,7 +33,7 @@ export class ResquisicaoService {
     return this.itemCollection.doc(id).valueChanges();
   }
 
-  cadastrar(clinica: any){
+  cadastrar(requisicao: any){
     return this.itemCollection.add(requisicao);
   }
 

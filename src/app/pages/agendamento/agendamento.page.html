@@ -17,7 +17,7 @@
   
       <ion-item>
         <ion-label position="stacked">Nome</ion-label>
-        <ion-input type="text" [(ngModel)]='nome'></ion-input>
+        <ion-input type="text" [(ngModel)]='nomecliente'></ion-input>
       </ion-item>
 
       <ion-item>
@@ -42,7 +42,7 @@
   
       <ion-list>
         <ion-item >
-          <ion-select [(ngModel)]='clinica' placeholder="Clinicas">
+          <ion-select [(ngModel)]='nomeclinica' placeholder="Clinicas">
             <ion-select-option *ngFor="let clinicas of listaClinicas" type="text">{{clinicas.nomeclinica}}</ion-select-option>
           </ion-select>
         </ion-item>

@@ -12,12 +12,12 @@ import { HistoricoService } from 'src/servico/historico.service';
 })
 export class AgendamentoPage implements OnInit {
 
-  public nome:any;
+  public nomecliente:any;
   public cpf:any;
   public data:any;
   public horario: any;
   public genero: any;
-  public clinica: any;
+  public nomeclinica: any;
   public especialidade: any;
 
   presentingElement: any;
@@ -37,15 +37,15 @@ export class AgendamentoPage implements OnInit {
   }
 
   agendamento(){
-    try{this.Historico.agendar({nome: this.nome, cpf: this.cpf, horario: this.horario, data: this.data, genero: this.genero, clinica: this.clinica, especialidade: this.especialidade}).then(res => {
+    try{this.Historico.agendar({nomecliente: this.nomecliente, cpf: this.cpf, horario: this.horario, data: this.data, genero: this.genero, nomeclinica: this.nomeclinica, especialidade: this.especialidade}).then(res => {
       if(res.collection.toString){
-      let agendamento = {
-        nome: this.nome,
+      let agendamentos = {
+        nomecliente: this.nomecliente,
         cpf: this.cpf,
         data: this.data,
         horario: this.horario,
         genero: this.genero,
-        clinica: this.clinica,
+        nomeclinica: this.nomeclinica,
         especialidade: this.especialidade,
       }
       alert('Agendamento Feito');
