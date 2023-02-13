@@ -4,5 +4,6 @@ export interface Clinicas{
     cnpj: number,
     endereco: string,
     bairro: string,
-    funcionamento: string
+    dias: string,
+    horarios: string
 }

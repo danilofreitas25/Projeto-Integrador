@@ -38,6 +38,18 @@ const routes: Routes = [
   {
     path: 'agendamento',
     loadChildren: () => import('./pages/agendamento/agendamento.module').then( m => m.AgendamentoPageModule)
+  },
+  {
+    path: 'clinica-update/:id',
+    loadChildren: () => import('./pages/clinica-update/clinica-update.module').then( m => m.ClinicaUpdatePageModule)
+  },
+  {
+    path: 'cadastro-clinica',
+    loadChildren: () => import('./pages/cadastro-clinica/cadastro-clinica.module').then( m => m.CadastroClinicaPageModule)
+  },
+  {
+    path: 'perfil-update',
+    loadChildren: () => import('./perfil-update/perfil-update.module').then( m => m.PerfilUpdatePageModule)
   }
 ];
 

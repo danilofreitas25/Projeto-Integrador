@@ -5,13 +5,13 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ClinicaService {
-  
+export class HorariosService {
+
   itemCollection: AngularFirestoreCollection;
   
   
   constructor(private af: AngularFirestore ) {
-    this.itemCollection = af.collection("clinica");
+    this.itemCollection = af.collection("horarios");
 
   }
 
@@ -33,15 +33,15 @@ export class ClinicaService {
     return this.itemCollection.doc(id).valueChanges();
   }
 
-  cadastrar(clinica: any){
-    return this.itemCollection.add(clinica);
+  cadastrar(horarios: any){
+    return this.itemCollection.add(horarios);
   }
 
   deletar(id: string){
     return this.itemCollection.doc(id).delete();
   }
 
-  editar(id: string, clinica: any){
-    return this.itemCollection.doc(id).update(clinica);
+  editar(id: string, item: any){
+    return this.itemCollection.doc(id).update(item);
   }
 }

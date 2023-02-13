@@ -8,91 +8,37 @@
 </ion-header>
 
 <ion-content>
-  <button id="clinica">
     <ion-card>
       <ion-card-header>
         <ion-card-title>Clínicas parceiras</ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
-        Clique aqui e conheça todas as nossas clínicas parceiras e veja sua classificação!
-      </ion-card-content>
-    </ion-card>
-  </button>
-  <ion-modal #modal trigger="clinica" [presentingElement]="presentingElement">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Modal</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="modal.dismiss()">Close</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list>
-          <ion-list> 
-            <ion-item-sliding *ngFor="let clinicas of listaClinicas">
-
-              <!-- <ion-item (click)="agendar(clinicas)">  -->
-              <ion-item>
-              <ion-thumbnail><img alt="Silhouette of mountains" src="https://cdn-icons-png.flaticon.com/512/2222/2222671.png" /></ion-thumbnail>   
-              <ion-label>{{clinicas.nomeclinica}}</ion-label>
-            </ion-item>
-
-            </ion-item-sliding>
-          </ion-list>
-        </ion-list>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-
-  <button (click)="alertando()">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Cadastro de Clínicas</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Clique aqui e faça o cadastro da sua clínica.
-      </ion-card-content>
-    </ion-card>
-  </button>
-
-  <button expand="block" (click)="setOpen(true)">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Excluimento de clínicas</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Clique aqui para excluir uma clínica!
-      </ion-card-content>
-    </ion-card>  
-  </button>
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Modal</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)">Close</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
         <ion-list> 
           <ion-item-sliding *ngFor="let clinicas of listaClinicas">
-          <button>
-            <!-- <ion-item (click)="agendar(clinicas)">  -->
-            <ion-item> 
-              <ion-checkbox slot="start"></ion-checkbox>
-            
-          </ion-item>
-        </button> 
+            <ion-card>
+            <ion-item>
+            <ion-thumbnail><img alt="Clinica" src="https://cdn-icons-png.flaticon.com/512/2222/2222671.png" /></ion-thumbnail>   
+            <ion-card-header>
+            <ion-card-title><strong>Clínica:</strong>{{clinicas.nomeclinica}}</ion-card-title>
+            <ion-card-subtitle><strong>Endereço: </strong>{{clinicas.endereco}}</ion-card-subtitle>
+            <ion-card-subtitle><strong>Bairro: </strong>{{clinicas.bairro}}</ion-card-subtitle>
+            <ion-icon color="warning" class="button-edit" [routerLink]="['/clinica-update',clinicas.id]" name="create-outline"></ion-icon>
+            <ion-icon color="danger" class="button-del" (click)="deletar(clinicas.id)" name="trash">Excluir</ion-icon>
+            </ion-card-header>
+            </ion-item>
+        </ion-card>
           </ion-item-sliding>
         </ion-list>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+      </ion-card-content>
+    </ion-card>
+  
 
 
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button (click)="alertando()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab> 

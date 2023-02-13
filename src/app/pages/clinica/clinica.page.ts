@@ -20,6 +20,7 @@ export class ClinicaPage implements OnInit {
   presentingElement = null;
 
   isModalOpen = false;
+  roleMessage: string;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -97,4 +98,34 @@ export class ClinicaPage implements OnInit {
   (await alert).present();
 
 }
+
+
+
+async deletar(id: string) {
+    const alerte = this.alertCtrl.create({
+      mode: 'md',
+      header: 'Deseja excluir?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          
+        },
+        {
+          text: 'Confirmar',
+          handler: ()  =>{
+            try{
+              this.ClinicaBase.deletar(id);              
+            }finally{
+              console.log("item excluido");
+            }
+          },
+        }
+      ]
+});
+(await alerte).present();
+}
+
+
+
 }
