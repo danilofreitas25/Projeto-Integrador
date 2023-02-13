@@ -49,7 +49,7 @@ const routes: Routes = [
   },
   {
     path: 'perfil-update',
-    loadChildren: () => import('./perfil-update/perfil-update.module').then( m => m.PerfilUpdatePageModule)
+    loadChildren: () => import('./pages/perfil-update/perfil-update.module').then( m => m.PerfilUpdatePageModule)
   }
 ];
 

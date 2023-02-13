@@ -11,34 +11,32 @@
 
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Perfis de Usuarios</ion-card-title>
+        <ion-card-title>Perfil</ion-card-title>
       </ion-card-header>
     
+
       <ion-card-content>
-        <ion-list> 
+        <ion-list>
           <ion-item-sliding *ngFor="let clientes of listaClientes">
-            <ion-card>
+            <ion-card [routerLink]="['/perfil-update',clientes]">
             <ion-item>
             <ion-thumbnail><img alt="Perfil" src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256__340.png"/></ion-thumbnail>   
-            <ion-card-header>
-            <ion-card-title><strong>Nome:</strong>{{clientes.nomecliente}}</ion-card-title>
+            <ion-card-header >
+            <ion-card-title><strong>Nome: </strong>{{clientes.nomecliente}}</ion-card-title>
             <ion-card-subtitle><strong>Endereço: </strong>{{clientes.endereco}}</ion-card-subtitle>
             <ion-card-subtitle><strong>CPF:</strong>{{clientes.cpf}}</ion-card-subtitle>
-            <ion-card-subtitle><strong>Data de Nascimento:</strong>{{clientes.nascimento}}</ion-card-subtitle>
             <ion-card-subtitle><strong>Email: </strong>{{clientes.email}}</ion-card-subtitle>
             <ion-card-subtitle><strong>Alergia: </strong>{{clientes.alergias}}</ion-card-subtitle>
             <ion-card-subtitle><strong>Genero: </strong>{{clientes.genero}}</ion-card-subtitle>
-            <ion-card-subtitle><strong>Tipo: </strong>{{clientes.tipo}}</ion-card-subtitle>
-            
-           
+            <ion-card-subtitle><strong>Tipo: </strong>{{clientes.tipo}}</ion-card-subtitle>              
             </ion-card-header>
             </ion-item>
-        </ion-card>
-          </ion-item-sliding>
+        </ion-card >
+      </ion-item-sliding>
         </ion-list>
       </ion-card-content>
-    </ion-card>
-  <ion-card-header> 
+</ion-card>
+
     <!-- botao -->
     <!-- <ion-content class="ion-padding">
       <ion-button id="open-modal" expand="block">ATUALIZAR</ion-button>
@@ -127,7 +125,6 @@
                   <ion-input type="text" [(ngModel)]='alergias'></ion-input>
                 </ion-item> -->
 
-              </ion-card-header>
             
          
         

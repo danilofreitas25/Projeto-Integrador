@@ -77,6 +77,7 @@ export class PerfilPage implements OnInit {
 
 
 
+
     canDismiss = async () => {
       const actionSheet = await this.actionSheetCtrl.create({
         header: 'Tem certeza?',
