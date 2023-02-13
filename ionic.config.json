@@ -1,7 +1,0 @@
-{
-  "name": "medconfia",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
