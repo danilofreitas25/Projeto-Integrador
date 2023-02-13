@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agendamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+
+  <ion-content class="ion-pading">
+    <div class="form">
+  
+      <ion-item>
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input type="text" [(ngModel)]='nomecliente'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">CPF</ion-label>
+        <ion-input type="number" [(ngModel)]='cpf'></ion-input>
+      </ion-item>
+
+      <ion-list>
+        <ion-item>
+          <ion-select [(ngModel)]='genero' placeholder="Genero">
+            <ion-select-option type="text">Masculino</ion-select-option>
+            <ion-select-option type="text">Feminino</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-item>
+        <ion-label position="stacked">Data e Hora</ion-label>
+        <ion-input type="date" [(ngModel)]='data'></ion-input>
+        <ion-input type="time" [(ngModel)]='horario'></ion-input>
+      </ion-item>
+  
+      <ion-list>
+        <ion-item >
+          <ion-select [(ngModel)]='nomeclinica' placeholder="Clinicas">
+            <ion-select-option *ngFor="let clinicas of listaClinicas" type="text">{{clinicas.nomeclinica}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item >
+          <ion-select [(ngModel)]='especialidade' placeholder="Especialidades">
+            <ion-select-option *ngFor="let especialidade of listaEspecialidades" type="text">{{especialidade.nome}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      
+      <ion-button (click)='agendamento()' expand='block'>Agendar</ion-button>
+    </div>
+  </ion-content>
+
+
+
+</ion-content>
