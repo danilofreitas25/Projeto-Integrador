@@ -11,33 +11,38 @@
   <div class="form">
 
     <ion-item>
-      <ion-label position="stacked">Nome</ion-label>
+      <ion-label position="stacked"><strong>Nome</strong></ion-label>
       <ion-input type="text" [(ngModel)]="nomecliente"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Email</ion-label>
+      <ion-label position="stacked"><strong>Email</strong></ion-label>
       <ion-input  type="email" [(ngModel)]='email'></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label  position="stacked">Senha</ion-label>
+      <ion-label  position="stacked"><strong>Senha</strong></ion-label>
       <ion-input placeholder="minimo 6 caracteres" type="password" [(ngModel)]='senha'></ion-input>
     </ion-item>
     
     <ion-item>
-      <ion-label position="stacked">CPF</ion-label>
+      <ion-label position="stacked"><strong>CPF</strong></ion-label>
       <ion-input type="number" [(ngModel)]='cpf'></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Data</ion-label>
+      <ion-label position="stacked"><strong>RG</strong></ion-label>
+      <ion-input type="number" [(ngModel)]='rg'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked"><strong>Data</strong></ion-label>
       <ion-input type="date" [(ngModel)]='data'></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Endereço</ion-label>
-      <ion-input type="text" [(ngModel)]='endereco'></ion-input>
+      <ion-label position="stacked" ><strong>Endereço</strong></ion-label>
+      <ion-textarea placeholder="" type="text" [(ngModel)]='endereco'></ion-textarea>
     </ion-item>
 
 
@@ -49,10 +54,6 @@
       </ion-item>
 
 
-    <ion-item>
-      <ion-label position="stacked">RG</ion-label>
-      <ion-input type="number" [(ngModel)]='rg'></ion-input>
-    </ion-item>
 
     <ion-item position="stacked">
       <ion-select [(ngModel)]='tipo' placeholder="Tipo Sanguíneo">
@@ -67,8 +68,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Alergias</ion-label>
-      <ion-input type="text" [(ngModel)]='alergias'></ion-input>
+      <ion-label position="stacked"><strong>Alergias</strong></ion-label>
+      <ion-textarea type="text" [(ngModel)]='alergias'></ion-textarea>
     </ion-item>
 
 
