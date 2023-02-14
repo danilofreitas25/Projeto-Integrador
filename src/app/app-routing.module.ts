@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'cadastrar',
-    loadChildren: () => import('./pages/cadastrar/cadastrar.module').then( m => m.CadastrarPageModule), canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/cadastrar/cadastrar.module').then( m => m.CadastrarPageModule), canActivate: [TourGuard]
   },
   {
     path: 'agendamento',
