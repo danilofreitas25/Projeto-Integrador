@@ -4,11 +4,10 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { ClinicaService } from 'src/servico/clinica.service';
 import { Clinicas } from 'src/model/clinicas.model';
 import { Clientes } from 'src/model/clientes.model';
-import { FirebaseService } from 'src/servico/firebase.service';
 import { ResquisicaoService } from 'src/servico/resquisicao.service';
 import { Requisacao } from 'src/model/requisicao.model';
 import Swal from 'sweetalert2';
-import { Route, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-suporte',
@@ -39,15 +38,10 @@ export class SuportePage implements OnInit {
 constructor(
   private ClinicaBase: ClinicaService,
   private Requisicao: ResquisicaoService,
-  private router: Router,
 
 ){}
 
   cancel() {
-    this.nomecliente = ""
-    this.email = ""
-    this.nomeclinica = ""
-    this.assunto = ""
     this.modal.dismiss(null, 'cancel');
   }
   
@@ -58,11 +52,6 @@ constructor(
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
-
-  // this.modal.dismiss();
-  // this.email = ""
-  // this.password = ""
-  // 
 
 
 
