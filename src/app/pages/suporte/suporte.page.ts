@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
   selector: 'app-suporte',
   templateUrl: './suporte.page.html',
   styleUrls: ['./suporte.page.scss'],
-})
+});
 export class SuportePage implements OnInit {
 
   public nomecliente: any;
@@ -68,8 +68,9 @@ constructor(
         title: 'Pronto!',
         text:   "Requisição feita",
         icon: 'success',
-        heightAuto: false,
-        
+       heightAuto: false,
+  
+
       });
     }})
     }catch{

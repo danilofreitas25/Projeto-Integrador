@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: 'perfil-update/:id',
-    loadChildren: () => import('./pages/perfil-update/perfil-update.module').then( m => m.PerfilUpdatePageModule), canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/perfil-update/perfil-update.module').then( m => m.PerfilUpdatePageModule), canActite: [AuthGuard]
   }
 ];
 
@@ -59,6 +59,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
