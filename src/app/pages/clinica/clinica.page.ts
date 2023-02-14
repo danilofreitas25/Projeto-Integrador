@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ClinicaService } from 'src/servico/clinica.service';
-import { HomePageModule } from '../home/home.module';
 import { Clinicas } from 'src/model/clinicas.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-clinica',
@@ -117,7 +117,12 @@ async deletar(id: string) {
             try{
               this.ClinicaBase.deletar(id);              
             }finally{
-              console.log("item excluido");
+              Swal.fire({
+                title: 'Excluído!',
+                text:   "Clinica Excluída",
+                icon: 'error',
+                heightAuto: false
+              });
             }
           },
         }
@@ -125,7 +130,6 @@ async deletar(id: string) {
 });
 (await alerte).present();
 }
-
 
 
 }

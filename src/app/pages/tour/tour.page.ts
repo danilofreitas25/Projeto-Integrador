@@ -5,6 +5,7 @@ import { AlertController, IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { AuthService } from 'src/servico/auth.service';
 import { FirebaseService } from 'src/servico/firebase.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tour',
@@ -40,15 +41,10 @@ export class TourPage implements OnInit {
   constructor(
     public router: Router,
     private authencation: AuthService,
-
-    //ferramenta validação do formulário
-
-    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
     //executa o metodo na inicialização da page log
-    this.validaForm();
     this.authencation.getAuth().user.subscribe(results => {
       localStorage.setItem('userId', results.uid );
     });
@@ -60,14 +56,6 @@ slideOpts = {
 }
 
 
-  //Método de criação e validacao form
-  validaForm(){
-    this.form = this.formBuilder.group({
-      email: ['',[Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.minLength(3)]]
-    })
-}
-
 
 login(){
   this.authencation.loginUser({email:this.email,password:this.password})
@@ -76,11 +64,18 @@ login(){
     if(res.user.uid){
       this.authencation.getDetails({uid:res.user.uid}).subscribe(res=>{
         this.modal.dismiss();
+        this.email = ""
+        this.password = ""
         this.router.navigateByUrl('home');
       });
     }
   },err=>{
-    alert("Email ou Senha Inválidos")
+    Swal.fire({
+      title: 'Error!',
+      text:   "Email ou Senha inválidos",
+      icon: 'error',
+      heightAuto: false
+    });
   })
 }
 

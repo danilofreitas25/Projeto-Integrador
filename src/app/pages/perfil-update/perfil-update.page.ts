@@ -19,7 +19,8 @@ export class PerfilUpdatePage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private ClientesBase: FirebaseService
+    private ClientesBase: FirebaseService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -33,14 +34,15 @@ export class PerfilUpdatePage implements OnInit {
       this.ClientesBase.editar(this.routeId, form.value);
     }finally{
       Swal.fire({
-        title: 'HURRAY!!',
-        text:   "Sweetalert2 is working fine.",
-        icon: 'success'
+        title: 'Pronto!',
+        text:   "Seu perfil foi atualizado",
+        icon: 'success',
+        heightAuto: false
       });
+      this.router.navigateByUrl('perfil');
     }
 
   }
-
 
 
 }

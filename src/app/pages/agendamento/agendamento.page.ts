@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Clinicas } from 'src/model/clinicas.model';
 import { Especialidade } from 'src/model/especialidades.model';
 import { ClinicaService } from 'src/servico/clinica.service';
 import { EspecialidadesService } from 'src/servico/especialidades.service';
 import { HistoricoService } from 'src/servico/historico.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agendamento',
@@ -27,7 +29,8 @@ export class AgendamentoPage implements OnInit {
   constructor(
     private ClinicaBase: ClinicaService,
     private Especialidades: EspecialidadesService,
-    private Historico: HistoricoService
+    private Historico: HistoricoService,
+    public router: Router,
   ) { }
 
   ngOnInit() {
@@ -48,10 +51,21 @@ export class AgendamentoPage implements OnInit {
         nomeclinica: this.nomeclinica,
         especialidade: this.especialidade,
       }
-      alert('Agendamento Feito');
+      Swal.fire({
+        title: 'Pronto!',
+        text:   "Agendamento feito",
+        icon: 'success',
+        heightAuto: false
+      });
+      this.router.navigateByUrl('home');
     }})
     }catch{
-      alert('Preencha todos os campos');
+      Swal.fire({
+        title: 'Atenção!',
+        text:   "Preencha todos os campos",
+        icon: 'info',
+        heightAuto: false
+      });
     }
   }
 }
