@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Clinicas } from 'src/model/clinicas.model';
 import { AuthService } from 'src/servico/auth.service';
 import { ClinicaService } from 'src/servico/clinica.service';
