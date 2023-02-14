@@ -48,7 +48,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cadastro-clinica/cadastro-clinica.module').then( m => m.CadastroClinicaPageModule)
   },
   {
-    path: 'perfil-update',
+    path: 'perfil-update/:id',
     loadChildren: () => import('./pages/perfil-update/perfil-update.module').then( m => m.PerfilUpdatePageModule)
   }
 ];
