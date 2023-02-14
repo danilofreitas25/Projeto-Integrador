@@ -19,8 +19,8 @@
       <ng-template>
         <ion-header>
           <ion-toolbar>
-            <ion-buttons slot="start">
-              <ion-button (click)="cancel()">Cancelar</ion-button>
+            <ion-buttons slot="end">
+              <ion-icon size="large" class="buttonClose" (click)="cancel()" name="close-outline"></ion-icon>
             </ion-buttons>
             <ion-title><strong>REQUISIÇÃO</strong></ion-title>
           </ion-toolbar>
@@ -66,7 +66,7 @@
           <ion-toolbar>
             <ion-title><strong>ACOMPANHE</strong></ion-title>
             <ion-buttons slot="end">
-              <ion-button (click)="modal.dismiss()">FECHAR</ion-button>
+              <ion-icon size="large" class="buttonClose" (click)="modal.dismiss()" name="close-outline"></ion-icon>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
@@ -102,7 +102,7 @@
           <ion-toolbar>
             <ion-title><strong>CONTATO</strong></ion-title>
             <ion-buttons slot="end">
-              <ion-button (click)="setOpen(false)">Fechar</ion-button>
+              <ion-icon size="large" class="buttonClose" (click)="setOpen(false)" name="close-outline"></ion-icon>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
