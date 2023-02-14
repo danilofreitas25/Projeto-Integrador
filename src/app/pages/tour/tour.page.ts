@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, IonModal } from '@ionic/angular';
+import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { AuthService } from 'src/servico/auth.service';
-import { FirebaseService } from 'src/servico/firebase.service';
 import Swal from 'sweetalert2';
 
 @Component({
