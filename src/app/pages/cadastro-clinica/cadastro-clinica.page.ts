@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Dias } from 'src/model/dias.model';
 import { Horario } from 'src/model/horarios.model';
 import { ClinicaService } from 'src/servico/clinica.service';
