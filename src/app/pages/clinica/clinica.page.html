@@ -19,6 +19,8 @@
             <ion-card-title><strong>{{clinicas.nomeclinica}}</strong></ion-card-title>
             <ion-card-subtitle><strong>Endereço: </strong>{{clinicas.endereco}}</ion-card-subtitle>
             <ion-card-subtitle><strong>Bairro: </strong>{{clinicas.bairro}}</ion-card-subtitle>
+            <ion-card-subtitle><strong>Dia: </strong>{{clinicas.dia}}</ion-card-subtitle>
+            <ion-card-subtitle><strong>Horario: </strong>{{clinicas.horario}}</ion-card-subtitle>
             <ion-icon class="buttonEdit" color="primary" size="large" [routerLink]="['/clinica-update',clinicas.id]" name="create-outline"></ion-icon>
             <ion-icon class="buttonDel" size="large" (click)="deletar(clinicas.id)" name="trash">Excluir</ion-icon>
             </ion-card-header>

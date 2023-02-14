@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/servico/auth.service';
 import Swal from 'sweetalert2';
 
@@ -21,7 +22,7 @@ export class CadastrarPage implements OnInit {
   public alergias: any;
 
   constructor(
-    private authentication: AuthService,
+    private authentication: AuthService
     ){}
 
   ngOnInit() {
