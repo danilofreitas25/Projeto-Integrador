@@ -6,6 +6,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   providedIn: 'root'
 })
 export class AuthService {
+  //Obtem informações do usuario
+  logout //Obtem informações do usuario
+    () {
+    throw new Error('Method not implemented.');
+  }
   itemCollection: any;
   auth: any;
 

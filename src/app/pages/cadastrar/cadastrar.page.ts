@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/servico/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastrar',
@@ -43,11 +44,21 @@ export class CadastrarPage implements OnInit {
           uid:res.user.uid
         }
         this.authentication.saveDetails(data).then(res=>{
-         alert('Conta Criada!');
+          Swal.fire({
+            title: 'Pronto!',
+            text:   "Seu cadastro foi feito",
+            icon: 'success',
+            heightAuto: false
+          });
         })
       }
     },err=>{
-      alert("Preencha todos os dados");
+      Swal.fire({
+        title: 'Atenção!',
+        text:   "Preencha todos os campos",
+        icon: 'info',
+        heightAuto: false
+      });
     })
   }
 

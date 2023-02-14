@@ -4,9 +4,10 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { ClinicaService } from 'src/servico/clinica.service';
 import { Clinicas } from 'src/model/clinicas.model';
 import { Clientes } from 'src/model/clientes.model';
-import { FirebaseService } from 'src/servico/firebase.service';
 import { ResquisicaoService } from 'src/servico/resquisicao.service';
 import { Requisacao } from 'src/model/requisicao.model';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-suporte',
@@ -30,14 +31,13 @@ export class SuportePage implements OnInit {
   message= 'Clique no botão acima para fazer a sua requisição.';
   message2= 'Clique no botão acima para acompanhar requição.';
   message3= 'Clique no botão acima e veja os meios de contato da medconfia.';
-  router: any;
+
 
 
 
 constructor(
   private ClinicaBase: ClinicaService,
-  private ClientesBase: FirebaseService,
-  private Requisicao: ResquisicaoService
+  private Requisicao: ResquisicaoService,
 
 ){}
 
@@ -53,6 +53,8 @@ constructor(
     }
   }
 
+
+
   requisicao(){
     try{this.Requisicao.cadastrar({nomecliente: this.nomecliente, email: this.email, nomeclinica: this.nomeclinica, assunto: this.assunto}).then(res => {
       if(res.collection.toString){
@@ -62,11 +64,21 @@ constructor(
         nomeclinica: this.nomeclinica,
         assunto: this.assunto,
       }
-      alert('Agendamento Feito');
-      this.router.navigateByUrl('suporte');
+      Swal.fire({
+        title: 'Pronto!',
+        text:   "Requisição feita",
+        icon: 'success',
+        heightAuto: false,
+        
+      });
     }})
     }catch{
-      alert('Preencha todos os campos');
+      Swal.fire({
+        title: 'Atenção!',
+        text:   "Preencha todos os campos",
+        icon: 'info',
+        heightAuto: false
+      });
     }
   }
 

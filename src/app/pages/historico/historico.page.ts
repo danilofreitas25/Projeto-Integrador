@@ -19,7 +19,6 @@ export class HistoricoPage implements OnInit {
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');
     this.Agendamentos.consultar().subscribe(results => this.listaAgendamentos = results);
-    this.Agendamentos.consultar().subscribe(results => this.listaAgendamentos = results);
   }
 
 }

@@ -12,7 +12,6 @@ export class AppComponent {
     { title: 'Home', url: '/home', icon: 'mail' },
     { title: 'Perfil', url: '/perfil', icon: 'paper-plane' },
     { title: 'Suporte', url: '/suporte', icon: 'heart' },
-    { title: 'Logout', url: '/tour', icon: 'archive' },
   ];
   public labels = [];
   constructor() {}
