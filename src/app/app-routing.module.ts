@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: 'perfil-update/:id',
-    loadChildren: () => import('./pages/perfil-update/perfil-update.module').then( m => m.PerfilUpdatePageModule), canActite: [AuthGuard]
+    loadChildren: () => import('./pages/perfil-update/perfil-update.module').then( m => m.PerfilUpdatePageModule), canActivate: [AuthGuard]
   }
 ];
 
