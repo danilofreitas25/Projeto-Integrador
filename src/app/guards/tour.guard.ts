@@ -7,7 +7,6 @@ import { AuthService} from 'src/servico/auth.service';
 })
 export class TourGuard implements CanActivate {
   
-
   constructor(
     private AuthService: AuthService,
     private Router: Router
