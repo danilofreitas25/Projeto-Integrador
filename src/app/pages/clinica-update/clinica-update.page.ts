@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dias } from 'src/model/dias.model';
 
+import { Horario } from 'src/model/horarios.model';
 import { ClinicaService } from 'src/servico/clinica.service';
+import { DiasService } from 'src/servico/dias.service';
+import { HorariosService } from 'src/servico/horarios.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,11 +19,14 @@ export class ClinicaUpdatePage implements OnInit {
   routeId= null;
   clinicas: any = {};
   listaDias: Dias[] =[];
+  listaHorarios: Horario [] = [];
   
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private ClinicaBase: ClinicaService,
+    private Horarios: HorariosService,
+    private Dias: DiasService,
     private router: Router,
   ) { }
 
@@ -29,6 +35,8 @@ export class ClinicaUpdatePage implements OnInit {
 
     if(this.routeId){
       this.ClinicaBase.consultaone(this.routeId).subscribe(results => {this.clinicas = results});
+      this.Horarios.consultar().subscribe(results => this.listaHorarios = results);
+      this.Dias.consultar().subscribe(results => this.listaDias = results);
     }
   }
   
