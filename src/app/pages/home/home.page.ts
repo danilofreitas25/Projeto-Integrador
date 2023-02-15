@@ -1,9 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-
 import { MenuController } from '@ionic/angular';
-
-
 import { Clinicas } from 'src/model/clinicas.model';
+
 import { AuthService } from 'src/servico/auth.service';
 import { ClinicaService } from 'src/servico/clinica.service';
 
@@ -21,10 +19,7 @@ export class HomePage implements OnInit {
     private ClinicaBase: ClinicaService,
     private AuthService: AuthService,
     public Menu: MenuController,
-
-
-
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.ClinicaBase.consultar().subscribe(results => this.listaClinicas = results);
@@ -42,7 +37,5 @@ export class HomePage implements OnInit {
       this.Menu.enable(false);
     }
   }
-
   
-
 }

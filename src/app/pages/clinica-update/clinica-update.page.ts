@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dias } from 'src/model/dias.model';
+
 import { ClinicaService } from 'src/servico/clinica.service';
-import { DiasService } from 'src/servico/dias.service';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-clinica-update',
   templateUrl: './clinica-update.page.html',

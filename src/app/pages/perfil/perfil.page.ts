@@ -9,11 +9,8 @@ import { Clientes } from 'src/model/clientes.model';
 })
 export class PerfilPage implements OnInit {
   isModalOpen = false;
-
   component = PerfilPage;
-
   presentingElement = null;
-
   listaClientes: Clientes[] = [];
 
   setOpen(isOpen: boolean) {
@@ -27,7 +24,6 @@ export class PerfilPage implements OnInit {
     ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');
     this.ClientesBase.consultar().subscribe( results => this.listaClientes = results);
-
     }
 
 }

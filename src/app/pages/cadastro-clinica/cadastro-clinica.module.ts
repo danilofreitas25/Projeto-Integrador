@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
 import { CadastroClinicaPageRoutingModule } from './cadastro-clinica-routing.module';
-
 import { CadastroClinicaPage } from './cadastro-clinica.page';
 
 @NgModule({

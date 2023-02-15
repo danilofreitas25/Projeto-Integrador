@@ -1,13 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+
 import { ClinicaService } from 'src/servico/clinica.service';
 import { Clinicas } from 'src/model/clinicas.model';
 import { Clientes } from 'src/model/clientes.model';
+
 import { ResquisicaoService } from 'src/servico/resquisicao.service';
 import { Requisacao } from 'src/model/requisicao.model';
 import Swal from 'sweetalert2';
-
 
 @Component({
   selector: 'app-suporte',
@@ -33,14 +34,17 @@ export class SuportePage implements OnInit {
   message2= 'Clique no botão acima para acompanhar requição.';
   message3= 'Clique no botão acima e veja os meios de contato da medconfia.';
 
-
-
-
 constructor(
   private ClinicaBase: ClinicaService,
   private Requisicao: ResquisicaoService,
-
 ){}
+
+ngOnInit() {
+  this.presentingElement = document.querySelector('.ion-page');
+  this.Requisicao.consultar().subscribe(results => this.listaRequisicoes = results);
+  this.ClinicaBase.consultar().subscribe(results => this.listaClinicas = results);
+
+}
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
@@ -53,7 +57,6 @@ constructor(
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
-
 
 
   requisicao(){
@@ -70,7 +73,6 @@ constructor(
         text:   "Requisição feita",
         icon: 'success',
        heightAuto: false,
-  
 
       });
     }})
@@ -94,11 +96,6 @@ constructor(
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  ngOnInit() {
-    this.presentingElement = document.querySelector('.ion-page');
-    this.Requisicao.consultar().subscribe(results => this.listaRequisicoes = results);
-    this.ClinicaBase.consultar().subscribe(results => this.listaClinicas = results);
 
-  }
 
 }

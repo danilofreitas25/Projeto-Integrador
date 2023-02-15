@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { TourPage } from './pages/tour/tour.page';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
