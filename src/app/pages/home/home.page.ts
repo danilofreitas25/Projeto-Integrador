@@ -1,5 +1,8 @@
 import { Component, OnInit} from '@angular/core';
+
 import { MenuController } from '@ionic/angular';
+
+
 import { Clinicas } from 'src/model/clinicas.model';
 import { AuthService } from 'src/servico/auth.service';
 import { ClinicaService } from 'src/servico/clinica.service';
@@ -17,7 +20,10 @@ export class HomePage implements OnInit {
   constructor(
     private ClinicaBase: ClinicaService,
     private AuthService: AuthService,
-    public Menu: MenuController
+    public Menu: MenuController,
+
+
+
     ) { }
 
   ngOnInit() {
@@ -36,5 +42,7 @@ export class HomePage implements OnInit {
       this.Menu.enable(false);
     }
   }
+
+  
 
 }

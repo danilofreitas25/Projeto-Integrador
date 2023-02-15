@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonModal, MenuController } from '@ionic/angular';
+
 import { OverlayEventDetail } from '@ionic/core/components';
 import { AuthService } from 'src/servico/auth.service';
 import Swal from 'sweetalert2';
@@ -41,6 +42,7 @@ export class TourPage implements OnInit {
   constructor(
     public router: Router,
     private authencation: AuthService,
+
     public Menu: MenuController
     ) { }
     
@@ -68,7 +70,6 @@ login(){
     console.log(res);
     if(res.user.uid){
       this.authencation.getDetails({uid:res.user.uid}).subscribe(res=>{
-        this.modal.dismiss();
         this.email = "";
         this.password = "";
         this.router.navigateByUrl('home');
