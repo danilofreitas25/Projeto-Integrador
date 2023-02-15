@@ -3,24 +3,21 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>  
-    <ion-title>Perfil</ion-title>
+    <ion-title><strong>PERFIL</strong></ion-title>
 </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div class="ion-page">
+
 
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>Perfil</ion-card-title>
-      </ion-card-header>
     
 
       <ion-card-content>
         <ion-list>
           <ion-item-sliding *ngFor="let clientes of listaClientes">
-            <ion-card [routerLink]="['/perfil-update',clientes]">
+            <ion-card [routerLink]="['/perfil-update',clientes.id]">
             <ion-item>
-            <ion-thumbnail><img alt="Perfil" src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256__340.png"/></ion-thumbnail>   
+            <ion-thumbnail><img alt="Perfil" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"/></ion-thumbnail>   
             <ion-card-header >
             <ion-card-title><strong>Nome: </strong>{{clientes.nomecliente}}</ion-card-title>
             <ion-card-subtitle><strong>Endereço: </strong>{{clientes.endereco}}</ion-card-subtitle>
@@ -37,97 +34,4 @@
       </ion-card-content>
 </ion-card>
 
-    <!-- botao -->
-    <!-- <ion-content class="ion-padding">
-      <ion-button id="open-modal" expand="block">ATUALIZAR</ion-button>
-      <ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss">
-        <ng-template>
-          <ion-header>
-            <ion-toolbar>
-              <ion-title>ATUALIZAR</ion-title>
-              <ion-buttons slot="end">
-                <ion-button (click)="modal.dismiss()">atualizar</ion-button>
-              </ion-buttons>
-            </ion-toolbar>
-          </ion-header> -->
-
-          <!-- atualizar pos botao -->
-          <!-- <ion-content class="ion-padding">
-            <ion-card>
-              <img src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256__340.png" />
-            
-                 <ion-card-title><strong>Nome de usuario:</strong></ion-card-title>
-                <ion-card-title><strong>CPF:</strong></ion-card-title>
-                <ion-card-title><strong>Email:</strong></ion-card-title>
-                <ion-card-title><strong>Senha:</strong></ion-card-title>
-                <ion-card-title><strong>Data de nascimento:</strong></ion-card-title>
-                <ion-card-title><strong>Endereço:</strong></ion-card-title>
-                <ion-card-title><strong>Alergia:</strong></ion-card-title>   -->
-
-                <!-- <ion-item>
-                  <ion-label position="stacked">Nome</ion-label>
-                  <ion-input type="text" [(ngModel)]="nomecliente"></ion-input>
-                </ion-item>
-            
-                <ion-item>
-                  <ion-label position="stacked">Email</ion-label>
-                  <ion-input  type="email" [(ngModel)]='email'></ion-input>
-                </ion-item>
-            
-                <ion-item>
-                  <ion-label  position="stacked">Senha</ion-label>
-                  <ion-input placeholder="minimo 6 caracteres" type="password" [(ngModel)]='senha'></ion-input>
-                </ion-item>
-                
-                <ion-item>
-                  <ion-label position="stacked">CPF</ion-label>
-                  <ion-input type="number" [(ngModel)]='cpf'></ion-input>
-                </ion-item>
-            
-                <ion-item>
-                  <ion-label position="stacked">Data</ion-label>
-                  <ion-input type="date" [(ngModel)]='data'></ion-input>
-                </ion-item>
-            
-                <ion-item>
-                  <ion-label position="stacked">Endereço</ion-label>
-                  <ion-input type="text" [(ngModel)]='endereco'></ion-input>
-                </ion-item>
-            
-            
-                  <ion-item position="stacked">
-                    <ion-select [(ngModel)]='genero' placeholder="Genero">
-                      <ion-select-option type="text">Masculino</ion-select-option>
-                      <ion-select-option type="text">Feminino</ion-select-option>
-                    </ion-select>
-                  </ion-item>
-            
-            
-                <ion-item>
-                  <ion-label position="stacked">RG</ion-label>
-                  <ion-input type="number" [(ngModel)]='rg'></ion-input>
-                </ion-item>
-            
-                <ion-item position="stacked">
-                  <ion-select [(ngModel)]='tipo' placeholder="Tipo Sanguíneo">
-                    <ion-select-option type="text">A+</ion-select-option>
-                    <ion-select-option type="text">B+</ion-select-option>
-                    <ion-select-option type="text">AB+</ion-select-option>
-                    <ion-select-option type="text">O+</ion-select-option>
-                    <ion-select-option type="text">A-</ion-select-option>
-                    <ion-select-option type="text">AB-</ion-select-option>
-                    <ion-select-option type="text">O-</ion-select-option>
-                  </ion-select>
-                </ion-item>
-            
-                <ion-item>
-                  <ion-label position="stacked">Alergias</ion-label>
-                  <ion-input type="text" [(ngModel)]='alergias'></ion-input>
-                </ion-item> -->
-
-            
-         
-        
-  
-  </div>
 </ion-content>

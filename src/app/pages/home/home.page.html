@@ -3,7 +3,12 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>  
-    <ion-title>home</ion-title>
+    <ion-title><strong>HOME</strong></ion-title>
+
+          <ion-buttons slot="end">
+            <ion-icon size="large" class="buttonClose" (click)="logout()" name="exit-outline"></ion-icon>
+          </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
@@ -55,6 +60,9 @@
       </ion-col>
       </ion-row>
   </ion-grid>
+
+
+</ion-content>
   
   
 

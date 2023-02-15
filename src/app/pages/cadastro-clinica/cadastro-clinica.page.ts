@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Dias } from 'src/model/dias.model';
 import { Horario } from 'src/model/horarios.model';
 import { ClinicaService } from 'src/servico/clinica.service';
 import { DiasService } from 'src/servico/dias.service';
 import { HorariosService } from 'src/servico/horarios.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastro-clinica',
@@ -25,7 +26,6 @@ export class CadastroClinicaPage implements OnInit {
   listaHorarios: Horario[] = [];
 
   constructor(
-    private activatedRoute: ActivatedRoute,
     private router: Router,
     private Dias: DiasService,
     private Horarios: HorariosService,
@@ -49,11 +49,22 @@ export class CadastroClinicaPage implements OnInit {
         dia: this.dia,
         hora: this.hora,
       }
-      alert('Cadastro Feito');
+      Swal.fire({
+        title: 'Pronto!',
+        text:   "Clinica Cadastrada",
+        icon: 'success',
+        heightAuto: false
+      });
+      this.router.navigateByUrl('clinica');
     }})
     }catch{
-      alert('Preencha todos os campos');
-    }
+      Swal.fire({
+        title: 'Atenção!',
+        text:   "Preencha todos os campos",
+        icon: 'info',
+        heightAuto: false
+      });
   }
+}
 
 }

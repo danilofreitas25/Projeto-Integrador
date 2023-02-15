@@ -5,5 +5,5 @@ export interface Clinicas{
     endereco: string,
     bairro: string,
     dia: string,
-    hora: string
+    horario: string
 }

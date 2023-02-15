@@ -9,10 +9,9 @@ import { TourPage } from './pages/tour/tour.page';
 
 export class AppComponent {
   public appPages = [
-    { title: 'Home', url: '/home', icon: 'mail' },
-    { title: 'Perfil', url: '/perfil', icon: 'paper-plane' },
-    { title: 'Suporte', url: '/suporte', icon: 'heart' },
-    { title: 'Logout', url: '/tour', icon: 'archive' },
+    { title: 'Home', url: '/home', icon: 'home' },
+    { title: 'Perfil', url: '/perfil', icon: 'person' },
+    { title: 'Suporte', url: '/suporte', icon: 'construct' },
   ];
   public labels = [];
   constructor() {}

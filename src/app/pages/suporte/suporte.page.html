@@ -19,8 +19,8 @@
       <ng-template>
         <ion-header>
           <ion-toolbar>
-            <ion-buttons slot="start">
-              <ion-button (click)="cancel()">Cancelar</ion-button>
+            <ion-buttons slot="end">
+              <ion-icon size="large" class="buttonClose" (click)="cancel()" name="close-outline"></ion-icon>
             </ion-buttons>
             <ion-title><strong>REQUISIÇÃO</strong></ion-title>
           </ion-toolbar>
@@ -66,7 +66,7 @@
           <ion-toolbar>
             <ion-title><strong>ACOMPANHE</strong></ion-title>
             <ion-buttons slot="end">
-              <ion-button (click)="modal.dismiss()">FECHAR</ion-button>
+              <ion-icon size="large" class="buttonClose" (click)="modal.dismiss()" name="close-outline"></ion-icon>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
@@ -74,11 +74,10 @@
           <ion-list> 
     <ion-item-sliding *ngFor="let requisicoes of listaRequisicoes">
   
-      <!-- <ion-item (click)="agendar(clinicas)">  -->
       <ion-card>
         <ion-item>
         <ion-thumbnail>
-          <img alt="Silhouette of mountains" src="https://cdn-icons-png.flaticon.com/512/5199/5199662.png" />
+          <img alt="Acompanhe" src="https://cdn-icons-png.flaticon.com/512/5199/5199662.png" />
         </ion-thumbnail> 
         <ion-card-header>
         <ion-card-subtitle><strong>Requisicao:</strong> {{requisicoes.id}}</ion-card-subtitle>
@@ -103,7 +102,7 @@
           <ion-toolbar>
             <ion-title><strong>CONTATO</strong></ion-title>
             <ion-buttons slot="end">
-              <ion-button (click)="setOpen(false)">Fechar</ion-button>
+              <ion-icon size="large" class="buttonClose" (click)="setOpen(false)" name="close-outline"></ion-icon>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
