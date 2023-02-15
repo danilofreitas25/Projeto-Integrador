@@ -73,6 +73,7 @@ login(){
         this.email = "";
         this.password = "";
         this.router.navigateByUrl('home');
+        this.cancel()
         this.Menu.enable(true);
       });
     }
