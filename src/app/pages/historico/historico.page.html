@@ -12,7 +12,6 @@
   <ion-list> 
     <ion-item-sliding *ngFor="let agendamentos of listaAgendamentos">
   
-      <!-- <ion-item (click)="agendar(clinicas)">  -->
       <ion-card>
         <ion-item>
         <ion-thumbnail>
@@ -23,7 +22,7 @@
         <ion-card-title><strong>Paciente:</strong> {{agendamentos.nomecliente}}</ion-card-title>
         <ion-card-subtitle><strong>Clinica:</strong> {{agendamentos.nomeclinica}}</ion-card-subtitle>
         <ion-card-subtitle><strong>Especialidade:</strong> {{agendamentos.especialidade}}</ion-card-subtitle>
-        <ion-card-subtitle><strong>Data:</strong> {{agendamentos.data}}</ion-card-subtitle>
+        <ion-card-subtitle><strong>Dia:</strong> {{agendamentos.data}}</ion-card-subtitle>
         <ion-card-subtitle><strong>Horário:</strong> {{agendamentos.horario}}</ion-card-subtitle>
       </ion-card-header>
        

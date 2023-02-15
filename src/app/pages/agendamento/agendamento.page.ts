@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Clinicas } from 'src/model/clinicas.model';
+
+import { Dias } from 'src/model/dias.model';
 import { Especialidade } from 'src/model/especialidades.model';
+import { Horario } from 'src/model/horarios.model';
+
 import { ClinicaService } from 'src/servico/clinica.service';
+import { DiasService } from 'src/servico/dias.service';
 import { EspecialidadesService } from 'src/servico/especialidades.service';
+
 import { HistoricoService } from 'src/servico/historico.service';
+import { HorariosService } from 'src/servico/horarios.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -25,18 +32,24 @@ export class AgendamentoPage implements OnInit {
   presentingElement: any;
   listaClinicas: Clinicas[] = [];
   listaEspecialidades: Especialidade[] = [];
+  listaHorarios: Horario[] = [];
+  listaDias: Dias[] = [];
 
   constructor(
     private ClinicaBase: ClinicaService,
     private Especialidades: EspecialidadesService,
+    private Horarios: HorariosService,
     private Historico: HistoricoService,
-    public router: Router,
+    private Dias: DiasService,
+    public router: Router
   ) { }
 
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');
     this.ClinicaBase.consultar().subscribe(results => this.listaClinicas = results);
     this.Especialidades.consultar().subscribe(results => this.listaEspecialidades = results);
+    this.Horarios.consultar().subscribe(results => this.listaHorarios = results);
+    this.Dias.consultar().subscribe(results => this.listaDias = results);
   }
 
   agendamento(){

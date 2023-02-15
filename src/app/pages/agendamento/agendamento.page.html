@@ -30,16 +30,10 @@
           </ion-select>
         </ion-item>
       </ion-list>
-
-      <ion-item>
-        <ion-label position="stacked">Data e Hora</ion-label>
-        <ion-input type="date" [(ngModel)]='data'></ion-input>
-        <ion-input type="time" [(ngModel)]='horario'></ion-input>
-      </ion-item>
   
       <ion-list>
         <ion-item >
-          <ion-select [(ngModel)]='nomeclinica' placeholder="Clinicas">
+          <ion-select [(ngModel)]='nomeclinica' placeholder="Clinica">
             <ion-select-option *ngFor="let clinicas of listaClinicas" type="text">{{clinicas.nomeclinica}}</ion-select-option>
           </ion-select>
         </ion-item>
@@ -47,8 +41,24 @@
 
       <ion-list>
         <ion-item >
-          <ion-select [(ngModel)]='especialidade' placeholder="Especialidades">
+          <ion-select [(ngModel)]='especialidade' placeholder="Especialidade">
             <ion-select-option *ngFor="let especialidade of listaEspecialidades" type="text">{{especialidade.nome}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list >
+        <ion-item >
+          <ion-select [(ngModel)]='data' placeholder="Data">
+            <ion-select-option *ngFor="let data of listaDias" type="text">{{data.dia}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item >
+          <ion-select [(ngModel)]='horario' placeholder="Horario">
+            <ion-select-option *ngFor="let horarios of listaHorarios" type="text">{{horarios.hora}}</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-list>
